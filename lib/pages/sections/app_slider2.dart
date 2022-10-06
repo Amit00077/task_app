@@ -10,7 +10,7 @@ class AppSlider2 extends StatefulWidget {
 }
 
 class _AppSlider2State extends State<AppSlider2> {
-  PageController pageController = PageController(viewportFraction: 1);
+  PageController pageController = PageController(viewportFraction: 0.5);
 
   @override
   void initState() {

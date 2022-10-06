@@ -16,6 +16,8 @@ class AppSlider extends StatefulWidget {
 }
 
 class _AppSliderState extends State<AppSlider> {
+  TextEditingController nameController = new TextEditingController();
+
   PageController pageController = PageController(viewportFraction: 1);
   var _currentPageValue = 0.0;
   final double _scaleFactor = 0.8;
@@ -124,7 +126,7 @@ class _AppSliderState extends State<AppSlider> {
                   text: "All Subscription",
                   color: Colors.grey,
                 ),
-                 Container(
+                Container(
                     height: Dimentions.height20 * 1.4,
                     width: Dimentions.height20 * 4.2,
                     decoration: BoxDecoration(
@@ -196,7 +198,7 @@ class _AppSliderState extends State<AppSlider> {
                   decoration: BoxDecoration(
                     borderRadius:
                         BorderRadius.circular(Dimentions.radius20 / 4),
-                    color: Colors.grey.shade500,
+                    color: Colors.purple.shade800,
                   ),
                   child: Container(
                       margin:
@@ -216,8 +218,7 @@ class _AppSliderState extends State<AppSlider> {
                               children: [
                                 Container(
                                     width: Dimentions.height80,
-                                    height: Dimentions.height23
-                                    ,
+                                    height: Dimentions.height23,
                                     color: Colors.teal.shade500,
                                     child: Center(
                                       child: SmallText(
@@ -252,7 +253,7 @@ class _AppSliderState extends State<AppSlider> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   BigText(
-                                    text: "Youtubr Premium ",
+                                    text: "Youtube Premium ",
                                     color: Colors.white,
                                   ),
                                   SizedBox(
@@ -272,7 +273,6 @@ class _AppSliderState extends State<AppSlider> {
                               ),
                             ),
                             Container(
-                            
                               padding: EdgeInsets.only(
                                   top: Dimentions.height10 * 1.5),
                               child: Column(children: [
@@ -300,7 +300,103 @@ class _AppSliderState extends State<AppSlider> {
                           ],
                         ),
                       )));
-            })
+            }),
+        Container(
+          padding: EdgeInsets.only(
+              left: Dimentions.width15, right: Dimentions.width15),
+          margin: EdgeInsets.only(
+              left: Dimentions.width10,
+              right: Dimentions.width10,
+              top: Dimentions.height10),
+          height: Dimentions.height45,
+          decoration: BoxDecoration(
+              color: Colors.grey.shade900,
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                BoxShadow(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    spreadRadius: Dimentions.height10 / 5),
+              ]),
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                BigText(
+                  text: "Show All Public Groups",
+                  color: Colors.white,
+                  size: Dimentions.font20,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Container(
+          width: 400,
+          padding: EdgeInsets.only(
+              left: Dimentions.width10,
+              right: Dimentions.width10,
+              top: Dimentions.height30 / 2,
+              bottom: Dimentions.height30),
+          margin: EdgeInsets.only(
+              left: Dimentions.width10,
+              right: Dimentions.width10,
+              top: Dimentions.height30,
+              bottom: Dimentions.height30),
+          height: Dimentions.pageViewContainer / 1.2,
+          decoration: BoxDecoration(
+              color: Colors.grey.shade800,
+              borderRadius: BorderRadius.circular(Dimentions.radius20 / 4)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              BigText(
+                text: "What do you want us to list next?",
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: Dimentions.height10,
+              ),
+              SmallText(
+                text: "Suggest us a subscription",
+                color: Colors.white,
+                size: Dimentions.font14,
+              ),
+              SizedBox(
+                height: Dimentions.height10,
+              ),
+              Row(
+                children: [
+                  Container(
+                    // height: 100,
+                    width: 300,
+                    child: TextFormField(
+                      
+                      controller: nameController,
+                      // enabled: false,
+                      textInputAction: TextInputAction.next,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                        fillColor: Colors.grey,
+                        filled: true,
+                        
+                        // isDense: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                           
+                        ),
+                        hintText: "Give your suggections",
+                      ),
+                      
+                    ),
+                  ),
+                  SizedBox(width: Dimentions.width10,),
+                    Icon(Icons.send,color: Colors.white, size: 30,)
+                ],
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
